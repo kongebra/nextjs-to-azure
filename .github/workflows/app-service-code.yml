@@ -51,7 +51,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: "next-azure"
+          app-name: "web-inmeta-learn"
           slot-name: "Production"
           publish-profile: ${{ secrets.PUBLISH_PROFILE }}
           package: .
