@@ -43,7 +43,7 @@ jobs:
     needs: build
 
     environment:
-      name: production
+      name: "app-service-code"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
