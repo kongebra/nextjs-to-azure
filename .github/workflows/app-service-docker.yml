@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -50,5 +50,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.PUBLISH_PROFILE }}
-          images: "ghcr.io/${{ github.repository }}:${{ github.sha }}"
+          publish-profile: ${{ secrets.PUBLISH_PROFILE_DOCKER }}
+          images: "${{ env.REGISTRY }}/${{ github.repository }}:${{ github.sha }}"
